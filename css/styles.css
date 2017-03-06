@@ -5,15 +5,15 @@ body {
 
 h1 {
   font-family: lobster two;
-  font-size: 40px;
+  font-size: 70pt;
   font-style: italic;
   font-weight: bold;
   border: solid 15px white;
-  padding: 10px;
-  width: 280px;
+  padding: 10px 35px 10px 10px;
+  width: 600px;
   margin: 0 auto;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 button {
@@ -23,20 +23,22 @@ button {
 #instruction {
   font-style: italic;
   font-weight: bold;
+  font-size: 18pt;
 }
 
 #input {
   width: 70%;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 #output {
   display: none;
-  width: 80%;
+  width: 70%;
   margin: auto;
+  font-size: 16pt;
 }
 
 #output-wrapper {
-  margin-top: 20px;
+  margin-top: 40px;
 }
