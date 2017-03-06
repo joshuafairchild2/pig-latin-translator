@@ -1,3 +1,4 @@
+
 body {
   background-color: #87CEFA;
   text-align: center;
@@ -41,4 +42,22 @@ button {
 
 #output-wrapper {
   margin-top: 40px;
+}
+
+@media only screen
+and (min-width : 375px)
+and (max-width : 736px) {
+  h1 {
+    width: 350px;
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+
+  #input {
+    margin-top: 20px;
+  }
+
+  #instruction {
+    font-size: 12pt;
+  }
 }
