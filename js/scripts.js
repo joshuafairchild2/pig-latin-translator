@@ -3,7 +3,13 @@ $(function() {
   $("form").submit(function(event) {
     var inputString = $("#input").val();
     var outputString = toPigLatin(inputString);
-    $("#output").text(outputString);
+    if (outputString === "") {
+      $('#output').show();
+      $('#output').text('Please enter a word or phrase');
+    } else {
+      $("#output").show();
+      $("#output").text(outputString);
+    }
     event.preventDefault()
   });
 });
