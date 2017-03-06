@@ -21,7 +21,7 @@ var checkForVowel = function(letter) {
     } else {
       return false;
     }
-} //check if letter is a vowel, return true/false accordingly
+} //function to check if letter is a vowel, return true/false accordingly
 
 var toPigLatin = function(inputString) {
   var inputString = inputString.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
@@ -35,18 +35,16 @@ var toPigLatin = function(inputString) {
   individualWords.forEach(function(individualWord) {
     var vowelsArray = [];
     for (var i = 0; i < individualWord.length; i++) {
-      vowelsArray.push(checkForVowel(individualWord[i]));
+      if (individualWord[i] === "y" && i === 0) {
+        vowelsArray.push(false); //if "y" is the first letter of the word it is considered a consonant
+      } else {
+        vowelsArray.push(checkForVowel(individualWord[i]));
+      }
     } //create an array of booleans representing "vowel" and "consonant" where true = vowel and false = consonant
-
+    console.log(vowelsArray);
     if (!isNaN(parseFloat(individualWord))) {
       resultArray.push(individualWord); //pass numbers through translator unchanged
-    } else if (individualWord[0] === "y") {
-      for (var yIndex = 1; vowelsArray[yIndex] === false; yIndex++) {
-        if (vowelsArray[(yIndex + 1)] === true) {
-          resultArray.push((individualWord.substr(yIndex + 1) + individualWord.substr(0, (yIndex + 1))) + "ay");
-        } //translate a word that starts with a "y" followed by one or more consonants
-      }
-    } else if (checkForVowel(individualWord[0])) {
+    }  else if (checkForVowel(individualWord[0]) && individualWord[0] !== "y") {
       resultArray.push(individualWord + "ay");
     } //translate a word that starts with a vowel
 
@@ -63,14 +61,3 @@ var toPigLatin = function(inputString) {
   //concat the translated words back into a sentence
   return resultArray;
 }
-
-
-// else if (individualWord[0] === "y") {
-//   for (var yIndex = 1; vowelsArray[yIndex] === false; yIndex++) {
-//     if (vowelsArray[yIndex] === true) {
-//       resultArray.push((individualWord.substr(yIndex + 1) + individualWord.substr(0, (yIndex + 1))) + "ay");
-//     } else if (vowelsArray[(yIndex + 1)] === true) {
-//       resultArray.push((individualWord.substr(yIndex + 1) + individualWord.substr(0, (yIndex + 1))) + "ay");
-//     }
-//   } //translate a word that starts with a "y"
-// }
